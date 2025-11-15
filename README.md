@@ -90,11 +90,13 @@ year month day today_temp yesterday_fc accuracy accuracy_range
 - Finds the **minimum** and **maximum**
 - Saves results into **weekly_summary.tsv**
 
-**Example:**
-- metric value
-- min_abs_error 1
-- max_abs_error 4
+**Example output:**
 
+```
+ metric          value
+ min_abs_error   1
+ max_abs_error   4
+```
 ---
 
 ### 4️⃣ backup_data.sh — Backup System
@@ -104,18 +106,17 @@ Creates a timestamped archive:
 backups/data_backup_20251115_124530.tar.gz
 ```
 
-
 **The backup contains:**
 
 - `rx_poc.log`
 - `historical_fc_accuracy_full.tsv`
 - `weekly_summary.tsv`
 
+---
+
 ## 🔄 Automating the Pipeline with Cron
 
 You can run each step automatically using **cron**.
-
----
 
 ### 1️⃣ Open your crontab:
 
@@ -149,6 +150,9 @@ crontab -e
 ```bash
 crontab -l
 ```
+
+---
+
 ## 📦 Checking Backups
 
 ### List all existing backups:
