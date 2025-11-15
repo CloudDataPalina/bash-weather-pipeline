@@ -55,11 +55,11 @@ weather-forecast-accuracy/
 
 Before running any script, make all .sh files executable:
 
-In the terminal, run:
+**In the terminal, run:**
 ```bash
 ls
 ```
-Then make all Bash scripts executable:
+**Then make all Bash scripts executable:**
 ```bash
 chmod +x *.sh
 ```
