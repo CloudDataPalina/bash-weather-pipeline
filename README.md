@@ -218,22 +218,22 @@ crontab -e
 ```
 ### 2️⃣ Add the following scheduled jobs:
 
-#### 📌 Daily data collection
+#### Daily data collection
 
 ```bash
 0 6 * * * /home/username/weather-project/rx_poc.sh
 ```
-#### 📌 Daily forecast accuracy calculation
+#### Daily forecast accuracy calculation
 
 ```bash
 2 6 * * * /home/username/weather-project/fc_accuracy.sh
 ```
-#### 📌 Weekly: compute weekly statistics
+#### Weekly: compute weekly statistics
 
 ```bash
 5 6 * * 0 /home/username/weather-project/weekly_stats.sh
 ```
-#### 📌 Weekly: create backup archive
+#### Weekly: create backup archive
 
 ```bash
 10 6 * * 0 /home/username/weather-project/backup_data.sh
