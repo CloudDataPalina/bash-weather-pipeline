@@ -77,8 +77,8 @@ This script:
 
 **Example output :**
 ```
-year  month day today_temp yesterday_fc accuracy accuracy_range
-2025  11    15  23         19           -4       poor
+year    month   day   today_temp   yesterday_fc   accuracy   accuracy_range
+2025    11      15    23           19             -4         poor
 ```
 
 ---
