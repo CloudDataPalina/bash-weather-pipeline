@@ -1,0 +1,27 @@
+# ----------------------------------
+# Bash Weather Pipeline - Git Ignore
+# ----------------------------------
+
+# Generated daily log file
+rx_poc.log
+
+# Generated accuracy datasets
+historical_fc_accuracy_full.tsv
+weekly_summary.tsv
+
+# Temporary files from wttr.in API
+weather_report
+
+# Backup archives
+backups/
+*.tar.gz
+
+# VSCode / JetBrains editors (optional)
+.vscode/
+.idea/
+
+# macOS system files (optional)
+.DS_Store
+
+# Linux temp files
+*~
