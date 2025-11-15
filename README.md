@@ -51,6 +51,21 @@ weather-forecast-accuracy/
 
 ## 📜 Script Descriptions
 
+### Before first run (important!)
+
+Before running any script, make all .sh files executable:
+
+In the terminal, run:
+```bash
+ls
+```
+Then make all Bash scripts executable:
+```bash
+chmod +x *.sh
+```
+After this, all scripts can be executed normally using ./script_name.sh
+
+
 ### 1️⃣ rx_poc.sh — Data Collection Script
 
 - Fetches weather for a specific city using **wttr.in**
@@ -58,7 +73,21 @@ weather-forecast-accuracy/
 - Extracts forecasted temperature for next-day noon  
 - Appends a formatted row to **rx_poc.log**
 
-**Sample output log:**
+**How to run:**
+```bash
+./rx_poc.sh
+```
+
+**Real example output (from test run):**
+```bash
+The current Temperature of Casablanca: 21
+The forecasted temperature for noon tomorrow for Casablanca : 19 C
+```
+**Check what was written to the log:**
+```bash
+cat rx_poc.log
+```
+**Written to rx_poc.log:**
 ```
 year    month   day     obs_temp    fc_temp
 2025    11      15      23          19
@@ -75,7 +104,21 @@ This script:
 - Computes **signed** and **absolute** accuracy
 - Writes the results into **historical_fc_accuracy_full.tsv**
 
-**Example output :**
+**How to run:**
+```bash
+./fc_accuracy.sh
+```
+
+**Real example output (from test run):**
+```
+year    month   day   today_temp   yesterday_fc   accuracy   accuracy_range
+2025    11      15    23           19             -4         poor
+```
+**Check what was written to the log:**
+```bash
+cat historical_fc_accuracy_full.tsv
+```
+**Written to historical_fc_accuracy_full.tsv:**
 ```
 year    month   day   today_temp   yesterday_fc   accuracy   accuracy_range
 2025    11      15    23           19             -4         poor
@@ -84,30 +127,75 @@ year    month   day   today_temp   yesterday_fc   accuracy   accuracy_range
 ---
 
 ### 3️⃣ weekly_stats.sh — Weekly Summary
-
 - Uses the last **7 forecast accuracy values**
 - Converts them to **absolute errors**
 - Finds the **minimum** and **maximum**
 - Saves results into **weekly_summary.tsv**
 
-**Example output:**
+**How to run:**
+```bash
+./weekly_stats.sh
+```
+**Real example output (from test run):**
+```bash
+Raw accuracy values (last 7 days):
+-5
+-1
+-2
+4
+-2
+0
+1
 
+Absolute accuracy values:
+5
+1
+2
+4
+2
+0
+1
+
+minimum absolute error = 0
+maximum absolute error = 5
+```
+**Check what was written to the log:**
+```bash
+cat weekly_summary.tsv
+```
+**Written to weekly_summary.tsv:**
 ```
  metric          value
- min_abs_error   1
- max_abs_error   4
+ min_abs_error   0
+ max_abs_error   5
 ```
 ---
 
 ### 4️⃣ backup_data.sh — Backup System
-
-Creates a timestamped archive:
+- Creates a timestamped compressed archive inside the **backups/** directory
+- Includes key pipeline output files (`rx_poc.log`, accuracy and weekly stats)
+- Ensures safe archiving and historical retention of data
+**How to run:**
 ```bash
-backups/data_backup_20251115_124530.tar.gz
+./backup_data.sh
 ```
-
+**Real example output (from test run):**
+```bash
+Backup created: backups/data_backup_20251115_191059.tar.gz
+```
+**List all existing backups:**
+```bash
+ls -lh backups/
+```
+**Real example:**
+```
+-rw-rw-r-- 1 codespace codespace 299 Nov 15 19:10 data_backup_20251115_191059.tar.gz
+```
+**Inspect backup contents:**
+```bash
+tar -tf backups/data_backup_*.tar.gz
+```
 **The backup contains:**
-
 - `rx_poc.log`
 - `historical_fc_accuracy_full.tsv`
 - `weekly_summary.tsv`
@@ -153,23 +241,6 @@ crontab -l
 
 ---
 
-## 📦 Checking Backups
-
-### List all existing backups:
-
-```bash
-ls -lh backups/
-```
-### Inspect a specific archive:
-
-```bash
-tar -tf backups/data_backup_YYYYMMDD_HHMMSS.tar.gz
-```
-Example:
-- rx_poc.log
-- historical_fc_accuracy_full.tsv
-- weekly_summary.tsv
-
 ## 📊 Data Flow Diagram
 ```
       [wttr.in API]
@@ -204,13 +275,6 @@ Example:
      +------------------+
              |
        backup .tar.gz
-```
-🚀 How to Run Manually
-```
-./rx_poc.sh
-./fc_accuracy.sh
-./weekly_stats.sh
-./backup_data.sh
 ```
 
 📝 Summary
