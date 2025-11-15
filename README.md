@@ -257,21 +257,21 @@ crontab -l
              |
       writes daily log
              v
-   +----------------------+
-   |   rx_poc.log         |
-   +----------------------+
+     +-----------------+
+     |   rx_poc.log    |
+     +-----------------+
              |
-     +------------------+
-     | fc_accuracy.sh   |
-     +------------------+
+     +-----------------+
+     | fc_accuracy.sh  |
+     +-----------------+
              |
    writes full accuracy history
              v
    historical_fc_accuracy_full.tsv
              |
-     +-------------------+
-     | weekly_stats.sh   |
-     +-------------------+
+     +-----------------+
+     | weekly_stats.sh |
+     +-----------------+
              |
      weekly_summary.tsv
              |
