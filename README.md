@@ -21,21 +21,21 @@ It demonstrates Bash scripting, data processing, automation and lightweight ETL 
 
 ```text
 weather-forecast-accuracy/
-├── rx_poc.sh                           ← daily weather collector
-├── fc_accuracy.sh                      ← forecast accuracy calculator
-├── weekly_stats.sh                     ← weekly accuracy summary
-├── backup_data.sh                      ← backup utility
+├── rx_poc.sh                             ← daily weather collector
+├── fc_accuracy.sh                        ← forecast accuracy calculator
+├── weekly_stats.sh                       ← weekly accuracy summary
+├── backup_data.sh                        ← backup utility
 │
-├── rx_poc.log                          ← daily appended log (generated)
-├── historical_fc_accuracy_full.tsv     ← full accuracy dataset (generated)
-├── weekly_summary.tsv                  ← weekly summary (generated)
+├── rx_poc.log                            ← daily appended log (generated)
+├── historical_fc_accuracy_full.tsv       ← full accuracy dataset (generated)
+├── weekly_summary.tsv                    ← weekly summary (generated)
 │
-├── synthetic_historical_fc_accuracy.tsv ← sample dataset for testing
-├── weather_report                      ← raw HTML from wttr.in (temp file)
+├── synthetic_historical_fc_accuracy.tsv  ← sample dataset for testing
+├── weather_report                        ← raw HTML from wttr.in (temp file)
 │
-├── backups/                            ← auto-generated tar.gz archives
+├── backups/                              ← auto-generated tar.gz archives
 │
-└── README.md                           ← documentation
+└── README.md                             ← documentation
 ```
 
 ## 🛠️ Skills & Tools
@@ -77,8 +77,8 @@ This script:
 
 **Example output :**
 ```
-year month day today_temp yesterday_fc accuracy accuracy_range
-2025   11  15    23      19             -4         poor
+year  month day today_temp yesterday_fc accuracy accuracy_range
+2025  11    15  23         19           -4       poor
 ```
 
 ---
