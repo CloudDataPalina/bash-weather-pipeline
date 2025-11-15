@@ -1,4 +1,7 @@
 # 🌦️ Weather Forecast Accuracy Pipeline
+![Bash](https://img.shields.io/badge/Bash-Scripts-121011?logo=gnu-bash&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Tested%20Successfully-brightgreen)
+![Cron](https://img.shields.io/badge/Cron-Automated-blue)
 
 ## ✅ Project Status
 This project is fully functional, tested and suitable for automation with cron.  
