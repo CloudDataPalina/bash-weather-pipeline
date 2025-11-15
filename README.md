@@ -275,9 +275,9 @@ crontab -l
              |
      weekly_summary.tsv
              |
-     +------------------+
-     | backup_data.sh   |
-     +------------------+
+     +-----------------+
+     | backup_data.sh  |
+     +-----------------+
              |
        backup .tar.gz
 ```
