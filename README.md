@@ -68,6 +68,8 @@ year    month   day     obs_temp    fc_temp
 2025    11      15      23          19
 ```
 
+---
+
 ### 2️⃣ fc_accuracy.sh — Daily Forecast Accuracy
 
 This script:
@@ -82,7 +84,6 @@ This script:
 year month day today_temp yesterday_fc accuracy accuracy_range
 ```
 
-
 ---
 
 ### 3️⃣ weekly_stats.sh — Weekly Summary
@@ -93,11 +94,9 @@ year month day today_temp yesterday_fc accuracy accuracy_range
 - Saves results into **weekly_summary.tsv**
 
 **Example:**
-```
-metric value
-min_abs_error 1
-max_abs_error 4
-```
+- metric value
+- min_abs_error 1
+- max_abs_error 4
 
 ---
 
