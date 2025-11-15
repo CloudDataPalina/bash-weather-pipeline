@@ -1,12 +1,8 @@
 # 🌦️ Weather Forecast Accuracy Pipeline
 
----
-
 ## ✅ Project Status
 This project is fully functional, tested and suitable for automation with cron.  
 Open for future improvements.
-
----
 
 ## 📌 Project Overview
 
