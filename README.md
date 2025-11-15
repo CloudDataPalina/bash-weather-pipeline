@@ -184,7 +184,7 @@ Example:
      | fc_accuracy.sh   |
      +------------------+
              |
- writes full accuracy history
+   writes full accuracy history
              v
    historical_fc_accuracy_full.tsv
              |
