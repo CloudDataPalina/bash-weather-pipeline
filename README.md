@@ -51,7 +51,7 @@ weather-forecast-accuracy/
 │   ├── fc_accuracy.png                       ← forecast accuracy calculation
 │   ├── rx_poc.png                            ← weather data collection
 │   ├── weekly_stats.png                      ← weekly statistics calculation
-│   └── project_overview.png                  ← overall project structure and execution
+│   └── structure.png                         ← overall project structure and execution
 │
 ├── .gitignore                                ← files and folders ignored by Git
 ├── LICENSE                                   ← project license (MIT)
@@ -105,7 +105,7 @@ The forecasted temperature for noon tomorrow for Casablanca : 19 C
 ```
 **Check what was written to the log:**
 ```bash
-cat rx_poc.log
+cat ../output/rx_poc.log
 ```
 **Written to rx_poc.log:**
 ```
@@ -121,7 +121,7 @@ This script:
 
 - Reads **rx_poc.log**
 - Compares each day's forecast with the actual next-day observation
-- Computes **signed** and **absolute** accuracy
+- Computes forecast error and classifies its accuracy
 - Writes the results into **historical_fc_accuracy_full.tsv**
 
 **How to run:**
@@ -136,7 +136,7 @@ year    month   day   today_temp   yesterday_fc   accuracy   accuracy_range
 ```
 **Check what was written to the log:**
 ```bash
-cat historical_fc_accuracy_full.tsv
+cat ../output/historical_fc_accuracy_full.tsv
 ```
 **Written to historical_fc_accuracy_full.tsv:**
 ```
@@ -181,7 +181,7 @@ maximum absolute error = 5
 ```
 **Check what was written to the log:**
 ```bash
-cat weekly_summary.tsv
+cat ../output/weekly_summary.tsv
 ```
 **Written to weekly_summary.tsv:**
 ```
@@ -201,11 +201,11 @@ cat weekly_summary.tsv
 ```
 **Real example output (from test run):**
 ```bash
-Backup created: backups/data_backup_20251115_191059.tar.gz
+Backup created: ../backups/data_backup_20251115_191059.tar.gz
 ```
 **List all existing backups:**
 ```bash
-ls -lh backups/
+ls -lh ../backups/
 ```
 **Real example:**
 ```
@@ -213,7 +213,7 @@ ls -lh backups/
 ```
 **Inspect backup contents:**
 ```bash
-tar -tf backups/data_backup_*.tar.gz
+tar -tf ../backups/data_backup_*.tar.gz
 ```
 **The backup contains:**
 - `rx_poc.log`
@@ -236,22 +236,22 @@ crontab -e
 #### Daily data collection
 
 ```bash
-0 6 * * * /home/username/weather-project/rx_poc.sh
+0 6 * * * cd /path/to/weather-forecast-accuracy/scripts && ./rx_poc.sh
 ```
 #### Daily forecast accuracy calculation
 
 ```bash
-2 6 * * * /home/username/weather-project/fc_accuracy.sh
+2 6 * * * cd /path/to/weather-forecast-accuracy/scripts && ./fc_accuracy.sh
 ```
 #### Weekly: compute weekly statistics
 
 ```bash
-5 6 * * 0 /home/username/weather-project/weekly_stats.sh
+5 6 * * 0 cd /path/to/weather-forecast-accuracy/scripts && ./weekly_stats.sh
 ```
 #### Weekly: create backup archive
 
 ```bash
-10 6 * * 0 /home/username/weather-project/backup_data.sh
+10 6 * * 0 cd /path/to/weather-forecast-accuracy/scripts && ./backup_data.sh
 ```
 ### 3️⃣ Verify installed cron jobs:
 
