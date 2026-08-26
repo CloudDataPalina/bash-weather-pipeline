@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Get last 7 accuracy values (6th column) from the synthetic file
-mapfile -t week_fc < <(tail -7 synthetic_historical_fc_accuracy.tsv | cut -f6)
+mapfile -t week_fc < <(tail -7 ../data/synthetic_historical_fc_accuracy.tsv | cut -f6)
 
 # Validate: print raw values
 echo "Raw accuracy values (last 7 days):"
@@ -39,9 +39,9 @@ echo "minimum absolute error = $minimum"
 echo "maximum absolute error = $maximum"
 
 # --- Write weekly summary to TSV ---
-echo -e "metric\tvalue" > weekly_summary.tsv
-echo -e "min_abs_error\t$minimum" >> weekly_summary.tsv
-echo -e "max_abs_error\t$maximum" >> weekly_summary.tsv
+echo -e "metric\tvalue" > ../output/weekly_summary.tsv
+echo -e "min_abs_error\t$minimum" >> ../output/weekly_summary.tsv
+echo -e "max_abs_error\t$maximum" >> ../output/weekly_summary.tsv
 
 echo
 echo "weekly_summary.tsv has been created."
