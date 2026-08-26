@@ -3,10 +3,10 @@ set -euo pipefail
 
 # Write header to output TSV
 echo -e "year\tmonth\tday\ttoday_temp\tyesterday_fc\taccuracy\taccuracy_range" \
-  > historical_fc_accuracy_full.tsv
+  > ../output/historical_fc_accuracy_full.tsv
 
 # Read rows from rx_poc.log, skipping header
-mapfile -t ROWS < <(tail -n +2 rx_poc.log)
+mapfile -t ROWS < <(tail -n +2 ../output/rx_poc.log)
 
 # Iterate over pairs: yesterday (prev) → today (curr)
 for ((i=1; i<${#ROWS[@]}; i++)); do
@@ -37,5 +37,5 @@ for ((i=1; i<${#ROWS[@]}; i++)); do
     # Write row to TSV
     printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\n" \
         "$c_year" "$c_month" "$c_day" "$c_obs" "$p_fc" "$accuracy" "$range" \
-        >> historical_fc_accuracy_full.tsv
+        >> ../output/historical_fc_accuracy_full.tsv
 done
