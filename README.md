@@ -46,6 +46,13 @@ weather-forecast-accuracy/
 │
 ├── backups/                                  ← compressed backup archives
 │
+├── screenshots/                              ← screenshots of pipeline execution and testing
+│   ├── backup_data.png                       ← backup creation and verification
+│   ├── fc_accuracy.png                       ← forecast accuracy calculation
+│   ├── rx_poc.png                            ← weather data collection
+│   ├── weekly_stats.png                      ← weekly statistics calculation
+│   └── project_overview.png                  ← overall project structure and execution
+│
 ├── .gitignore                                ← files and folders ignored by Git
 ├── LICENSE                                   ← project license (MIT)
 └── README.md                                 ← project documentation
