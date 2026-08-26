@@ -2,16 +2,16 @@
 set -euo pipefail
 
 # Directory where backups will be stored
-backup_dir="backups"
+backup_dir="../backups"
 mkdir -p "$backup_dir"
 
 timestamp=$(date +"%Y%m%d_%H%M%S")
 
 # Files to include in the backup
 files_to_backup=(
-  "rx_poc.log"
-  "historical_fc_accuracy_full.tsv"
-  "weekly_summary.tsv"
+  "../output/rx_poc.log"
+  "../output/historical_fc_accuracy_full.tsv"
+  "../output/weekly_summary.tsv"
 )
 
 # Filter only the files that actually exist
