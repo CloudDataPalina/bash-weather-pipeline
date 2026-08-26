@@ -4,10 +4,10 @@ set -euo pipefail
 
 city=Casablanca
 
-curl -s "wttr.in/$city?T" --output weather_report
+curl -s "wttr.in/$city?T" --output ../reports/weather_report
 
 obs_temp=$(
-  grep -m 1 -E '°|\?' weather_report \
+  grep -m 1 -E '°|\?' ../reports/weather_report \
   | grep -Eo -- '-?[0-9]+' \
   | head -1
 )
@@ -15,7 +15,7 @@ obs_temp=$(
 echo "The current Temperature of $city: $obs_temp"
 
 fc_temp=$(
-  head -23 weather_report \
+  head -23 ../reports/weather_report \
   | tail -1 \
   | grep -E '°|\?' \
   | grep -Eo -- '-?[0-9]+' \
@@ -32,4 +32,4 @@ year=$(TZ="$TZ" date +%Y)
 
 record=$(printf "%s\t%s\t%s\t%s\t%s" "$year" "$month" "$day" "$obs_temp" "$fc_temp")
 
-echo -e "$record" >> rx_poc.log
+echo -e "$record" >> ../output/rx_poc.log
