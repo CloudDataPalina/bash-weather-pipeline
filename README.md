@@ -27,26 +27,28 @@ It demonstrates Bash scripting, data processing, automation and lightweight ETL 
 ```text
 weather-forecast-accuracy/
 │
-├── data/
-│   └── synthetic_historical_fc_accuracy.tsv
+├── scripts/                                  ← Bash scripts that run the pipeline
+│   ├── rx_poc.sh                             ← daily weather data collector
+│   ├── fc_accuracy.sh                        ← forecast accuracy calculator
+│   ├── weekly_stats.sh                       ← weekly accuracy statistics
+│   └── backup_data.sh                        ← creates compressed data backups
 │
-├── output/
-│   ├── rx_poc.log
-│   ├── historical_fc_accuracy_full.tsv
-│   └── weekly_summary.tsv
+├── data/                                     ← input and test data
+│   └── synthetic_historical_fc_accuracy.tsv  ← sample dataset for testing
 │
-├── reports/
-│   └── weather_report
+├── output/                                   ← generated pipeline results
+│   ├── rx_poc.log                            ← daily weather observations and forecasts
+│   ├── historical_fc_accuracy_full.tsv      ← calculated forecast accuracy history
+│   └── weekly_summary.tsv                    ← weekly minimum/maximum forecast error
 │
-├── scripts/
-│   ├── rx_poc.sh
-│   ├── fc_accuracy.sh
-│   ├── weekly_stats.sh
-│   └── backup_data.sh
+├── reports/                                  ← raw reports and intermediate files
+│   └── weather_report                        ← raw weather response from wttr.in
 │
-├── .gitignore
-├── LICENSE
-└── README.md
+├── backups/                                  ← compressed backup archives
+│
+├── .gitignore                                ← files and folders ignored by Git
+├── LICENSE                                   ← project license (MIT)
+└── README.md                                 ← project documentation
 ```
 
 ## 🛠️ Skills & Tools
